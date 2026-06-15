@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Exam Pervasif</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <audio id="alert-sound" src="https://www.soundjay.com/buttons/sounds/beep-07a.mp3" preload="auto"></audio>
+    <audio id="afk-sound" src="https://www.soundjay.com/buttons/sounds/beep-01a.mp3" preload="auto"></audio>
+
+    <div id="afk-banner" class="hidden">
+        <span class="pulse-icon">⚠️</span> 
+        SISTEM MENDETEKSI ANDA MENINGGALKAN PERANGKAT - WAKTU DIJEDA 
+        <span class="pulse-icon">⚠️</span>
+    </div>
+
+    <div id="start-page" class="container glass-panel fade-in">
+        <div class="icon-header bounce">💻</div>
+        <h1>Smart Exam Portal</h1>
+        <p class="subtitle">Dilengkapi AI & Context-Aware Pervasive Computing</p>
+        <div class="input-group">
+            <input type="text" id="student-name" placeholder="Masukkan Nama & NIM Anda" autocomplete="off">
+        </div>
+        <button onclick="startExam()" class="btn-glow">Mulai Simulasi Ujian</button>
+    </div>
+
+    <div id="exam-page" class="container glass-panel hidden fade-in">
+        <div class="header">
+            <div class="header-info">
+                <h2>Ujian Sedang Berlangsung</h2>
+                <div class="live-tracker">
+                    Pelanggaran: <span id="live-violations" class="danger-text">0</span>
+                </div>
+            </div>
+            <div class="timer-box">
+                ⏱️ <span id="time-display" class="time-text">05:00</span>
+            </div>
+        </div>
+        
+        <div id="question-container" class="scrollable-questions">
+            </div>
+
+        <button class="btn-submit" onclick="finishExam()">Kumpulkan Jawaban</button>
+    </div>
+
+    <div id="result-page" class="container glass-panel hidden fade-in">
+        <div class="icon-header">🏆</div>
+        <h1>Laporan Hasil Ujian</h1>
+        <div class="score-board">
+            <h2 id="final-score">Skor: 0</h2>
+        </div>
+        
+        <div class="log-box">
+            <h3><span class="icon">📡</span> Log Deteksi Pervasif:</h3>
+            <ul id="behavior-log">
+                </ul>
+        </div>
+        <button onclick="location.reload()" class="btn-glow mt-20">Ulangi Simulasi</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
