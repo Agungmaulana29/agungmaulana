@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login Smart Exam</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+
+background:linear-gradient(135deg,#4e54c8,#8f94fb);
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-family:Arial, Helvetica, sans-serif;
+
+}
+
+.card{
+
+width:450px;
+
+border:none;
+
+border-radius:20px;
+
+padding:25px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+}
+
+.title{
+
+font-size:30px;
+
+font-weight:bold;
+
+text-align:center;
+
+margin-bottom:20px;
+
+color:#4e54c8;
+
+}
+
+.btn{
+
+width:100%;
+
+height:50px;
+
+font-size:18px;
+
+border-radius:10px;
+
+margin-top:10px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="title">
+
+🔐 Login Smart Exam
+
+</div>
+
+{% if error %}
+
+<div class="alert alert-danger">
+
+{{ error }}
+
+</div>
+
+{% endif %}
+
+<form action="/login" method="POST">
+
+<div class="mb-3">
+
+<label class="form-label">
+
+NIM
+
+</label>
+
+<input
+
+type="text"
+
+class="form-control"
+
+name="nim"
+
+id="nim"
+
+maxlength="15"
+
+inputmode="numeric"
+
+required>
+
+</div>
+
+<div class="mb-4">
+
+<label class="form-label">
+
+Password
+
+</label>
+
+<input
+
+type="password"
+
+class="form-control"
+
+name="password"
+
+required>
+
+</div>
+
+<button
+
+type="submit"
+
+class="btn btn-primary">
+
+🚀 Masuk
+
+</button>
+
+<a
+
+href="/register"
+
+class="btn btn-success">
+
+📝 Belum punya akun? Daftar
+
+</a>
+
+<a
+
+href="/"
+
+class="btn btn-secondary">
+
+🏠 Kembali
+
+</a>
+
+</form>
+
+</div>
+
+<script>
+
+// Hanya angka untuk NIM
+document.getElementById("nim").addEventListener("input",function(){
+
+this.value=this.value.replace(/[^0-9]/g,'');
+
+});
+
+</script>
+
+</body>
+
+</html>
